@@ -28,7 +28,51 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
+    digit_string = ''
+    n = len(digit_string)
+    for i in input_string:
+        if i == '0':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'zero'
+        elif i == '1':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'one'
+        elif i == '2':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'two'
+        elif i == '3':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'three'
+        elif i == '4':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'four'
+        elif i == '5':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'five'
+        elif i == '6':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'six'
+        elif i == '7':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'seven'
+        elif i == '8':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'eight'
+        elif i == '9':
+            if n > 0:
+                digit_string += ' '
+            digit_string += 'nine'
+        n = len(digit_string)
+    
     return digit_string
 
 
@@ -64,5 +108,15 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
+    camelcase_str = underscore_str.strip('_')
+    i = 0
+    n = len(camelcase_str)
+    if camelcase_str.find('_') == -1 and n > 0:
+        camelcase_str = camelcase_str[0].lower() + camelcase_str[1:]
+    else:
+        words = camelcase_str.split('_')
+        camelcase_str = words[0].lower()
+        for i in range(1, len(words)):
+            camelcase_str += words[i].capitalize()
+
     return camelcase_str
